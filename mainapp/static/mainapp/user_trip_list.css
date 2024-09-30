@@ -1,0 +1,52 @@
+.trip-section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+.trip-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.trip-tile {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.trip-tile:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.trip-info h3 {
+    margin-bottom: 10px;
+}
+
+.trip-info p {
+    margin-bottom: 5px;
+}
+
+.action-buttons {
+    margin-top: 15px;
+}
+
+.add-review-button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-review-button:hover {
+    background-color: #218838;
+}

@@ -1,0 +1,122 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block title %}
+    Add Rating and Review for {{ place.name }}
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="card-title text-center mb-4">Add Rating and Review for {{ place.name }}</h1>
+                    <div class="card-body">
+                        <div class="rating-review-section">
+                            <form action="{% url 'mainapp:add_rating_and_review' place_id=place.id %}" method="post">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                    <label for="id_rating" class="form-label">Rating:</label>
+                                    {{ rating_form.rating }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="id_review" class="form-label">Review:</label>
+                                    {{ review_form.review }}
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Submit Rating and Review</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        /* Custom CSS styles */
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .card {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            color: #333;
+            margin-bottom: 20px;
+            /* Center the title */
+            text-align: center;
+            /* Remove background */
+            background: none;
+        }
+
+        .card-body {
+            padding: 50px;
+        }
+
+        .rating-review-section {
+            margin-bottom: 30px;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        textarea {
+            width: 80%;
+            min-height: 100px; /* Adjust the height as needed */
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: vertical; /* Allow vertical resizing */
+        }
+
+        select#id_rating {
+            width: 80%;
+            padding: 8px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+
+        .form-label {
+            width: 100px;
+            margin-right: 10px;
+            font-size: 20px;
+            padding: 8px;
+        }
+
+
+        .btn {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+{% endblock %}

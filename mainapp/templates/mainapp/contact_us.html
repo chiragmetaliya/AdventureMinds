@@ -1,0 +1,81 @@
+{% extends 'mainapp/base.html' %}
+{% load static %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+    <style>
+        /* Style the card */
+        .card {
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style form elements */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: calc(100% - 16px); /* Adjust for padding and border */
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #cc8b65;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #e3dcd2;
+            color: #013328;
+        }
+
+        /* Center align the h1 */
+        h1 {
+            text-align: center;
+        }
+    </style>
+
+    <div class="card">
+        <h1>Contact Us</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_first_name"><strong>First Name:</strong></label>
+                {{ form.first_name }}
+            </div>
+            <div class="form-group">
+                <label for="id_last_name"><strong>Last Name:</strong></label>
+                {{ form.last_name }}
+            </div>
+            <div class="form-group">
+                <label for="id_email"><strong>Email:</strong></label>
+                {{ form.email }}
+            </div>
+            <div class="form-group">
+                <label for="id_message"><strong>Message:</strong></label>
+                {{ form.message }}
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+{% endblock %}
